@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهنئة عيد الفطر المبارك</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+        body {
+            width: 100%;
+            height: 100vh;
+            max-width: 1400px;
+            margin: auto;
+            text-align: center;
+            background: #ffcc00;
+            font-family: 'Cairo', sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 3px 3px 5px #000;
+            margin-top: 50px;
+        }
+        .message {
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: red;
+            border-radius: 50%;
+            bottom: -100px;
+            animation: float 5s ease-in infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .footer-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #d9534f;
+            color: white;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            animation: slideUp 2s ease-in-out infinite alternate;
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>عيد فطر مبارك </h1>
+    <p class="message">كل عام وأنت بخير ❤<br>عيدك مبارك<br>أسأل الله أن يجعل أيامك سعادة وفرح، وأن يملأ قلبك بالطمأنينة والسرور. تقبل الله منك الصيام والقيام، وجعل عيدك مليئًا بالبركات والمسرات. عيد سعيد عليك وعلى أحبابك!<br><br>أجمل التهاني والتبريكات بمناسبة عيد الفطر المبارك، مع أطيب الأمنيات لكم بالسعادة والفرح. كل عام وأنتم بخير!<br>مع تحياتي: خالد أيمن عبد المرشدي</p>
+    <div class="balloons"></div>
+    <div class="footer-banner">تهنئة خاصة من أخوكم خالد أيمن المرشدي بمناسبة عيد الفطر المبارك 🌙✨</div>
+    <script>
+        function createBalloons(num) {
+            for (let i = 0; i < num; i++) {
+                let balloon = document.createElement('div');
+                balloon.classList.add('balloon');
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                balloon.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.querySelector('.balloons').appendChild(balloon);
+                setTimeout(() => { balloon.remove(); }, 5000);
+            }
+        }
+        setInterval(() => createBalloons(5), 1000);
+    </script>
+</body>
+</html>
